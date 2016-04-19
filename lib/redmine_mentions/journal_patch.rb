@@ -16,7 +16,10 @@ module RedmineMentions
             mentioned_users.each do |mentioned_user|
               username = mentioned_user.first[1..-1]
               if user = User.find_by_login(username)
-                MentionMailer.notify_mentioning(issue, self, user).deliver
+                if Setting.plugin_redmine_mentions['mail'] == 'enabled'
+                  binding.pry
+                  MentionMailer.notify_mentioning(issue, self, user).deliver
+                end
               end
             end
           end

@@ -4,3 +4,9 @@
   <%= select_tag('settings[trigger]',
                  options_for_select(['@',':','~','!','#','%'],settings['trigger'])) %>
 </p>
+
+<p>
+  <label for="settings[mail]">Mail Notification</label>
+  <%= select_tag('settings[mail]',
+                 options_for_select(['enabled','disabled'],settings['mail'])) %>
+</p>
